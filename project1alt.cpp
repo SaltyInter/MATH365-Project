@@ -20,7 +20,7 @@ void distribution( vector<vector<double>> A, vector<double>& x, int start, int n
         for( int times = 1; times <= n; ++times, start++ ) {
             vector<double> resultVec{};
 
-            for( int i{}; i < A.size(); ++i ) {
+            for( int i = 0; i < A.size(); ++i ) {
                 double dotProd = 0;
 
                 for( int j = 0; j < A[i].size(); ++j )
@@ -34,7 +34,7 @@ void distribution( vector<vector<double>> A, vector<double>& x, int start, int n
 	        // overwrite existing vector x with the final result
             x = resultVec;
         }
-    }
+    
 
 }
 
