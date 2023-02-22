@@ -19,13 +19,13 @@ void distribution( vector<vector<double>> A, vector<double>& x, int start, int n
     if( A[0].size() == x.size() ) {
         
         // loop n times to obtain distribution
-        for( int times{1}; times <= n; ++times, start++ ) {
+        for( int times = 1; times <= n; ++times, start++ ) {
             vector<double> resultVec{};
 
             for( int i{}; i < A.size(); ++i ) {
-                double dotProd{};
+                double dotProd = 0;
 
-                for( int j{}; j < A[i].size(); ++j )
+                for( int j = 0; j < A[i].size(); ++j )
                     dotProd += A[i][j] * x[j];
 
                 resultVec.push_back( dotProd );
