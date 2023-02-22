@@ -15,9 +15,7 @@ void printVec( vector<double> vec, int years, ofstream &output )
 
 void distribution( vector<vector<double>> A, vector<double>& x, int start, int n, ofstream& o )
 {
-    // check if row and column are the same
-    if( A[0].size() == x.size() ) {
-        
+
         // loop n times to obtain distribution
         for( int times = 1; times <= n; ++times, start++ ) {
             vector<double> resultVec{};
@@ -37,9 +35,7 @@ void distribution( vector<vector<double>> A, vector<double>& x, int start, int n
             x = resultVec;
         }
     }
-    else {
-        cout << "Row and column do not match.\n";
-    }
+
 }
 
 
