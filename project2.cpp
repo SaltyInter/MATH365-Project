@@ -87,6 +87,8 @@ int main(){
                     if (isnan(ev1) || isnan(ev2)) {
                         B *= -1;
                         D *= -1;
+                        out << "A: " << A << "\tB: " << B << "\tC: " << C << "\tD: " << D << "\t" << "\n";
+                        out << "Imaginary Values\n\n\n";
                         continue;
                     }
                     //creates the eigenvector matrixes
