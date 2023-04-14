@@ -1,20 +1,19 @@
-﻿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <fstream>
 #include <math.h>
-#include <fstream>
 
 using namespace std;
 
 //prints out matrix
-void printMatrix( vector<vector<double>> vec, ofstream &out) {
+void printMatrix( vector<vector<double>> vec, ofstream &out, bool t) {
     for (int i = 0; i < vec.size(); i++)
     {
         for (int j = 0; j < vec[i].size(); j++)
         {        
             out << vec[i][j];
             //adds superscript just for growth matrix
-            if (vec[i].size() > 1) {
+            if (t) {
                 out << "^t";
             }
             out << "\t";
@@ -64,7 +63,7 @@ vector<vector<double>> addingMatrix(vector<vector<double>> vec1, vector<vector<d
 
 int main(){
     ofstream out;
-    out.open("result.txt");
+    out.open("project2result.txt");
 
    //Investigates all possible solutions for different values of parameters 0 ≤ 𝐴 ≤ 5, 0 ≤ 𝐵 ≤ 5, 0 ≤ 𝐶 ≤ 5, 0 ≤ 𝐷 ≤ 5.
    for (double A = 0; A <= 5; A++) {
@@ -201,17 +200,17 @@ int main(){
                         out << "A: " << A << "\tB: " << -1 * B << "\tC: " << C << "\tD: " << -1 * D << "\t" << "\n\n";
                         out << "eigenvalue 1: " << ev1 << "\neigenvalue 2: " << ev2 << "\n\n";
                         out << "eigenvector 1:\n";
-                        printMatrix(u1, out);
+                        printMatrix(u1, out, false);
                         out << "eigenvector 2:\n";
-                        printMatrix(u2, out);
+                        printMatrix(u2, out, false);
                         out << "Solution:\n";
-                        printMatrix(solution, out);
+                        printMatrix(solution, out, true);
 
                         vector<vector<double>> matrix = {{A,B}, {C,D}};
                         vector<vector<double>> finalMatrix = multiplyMatrix(matrix, solution);
 
                         out << "Growth Matrix: \n";
-                        printMatrix(finalMatrix, out);
+                        printMatrix(finalMatrix, out, true);
 
                         out << "\n\n";
                         
